@@ -136,3 +136,16 @@ DATABASES['default'].update(db_from_env)
 FB_ACCESS_TOKEN = env.str("FB_ACCESS_TOKEN", "")
 FB_VERIFY_TOKEN = env.str("FB_VERIFY_TOKEN", "")
 bot = Bot(FB_ACCESS_TOKEN)
+
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": env.str("REDIS_URL", ""),
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "COMPRESSOR": "django_redis.compressors.zlib.ZlibCompressor",
+            "IGNORE_EXCEPTIONS": True,
+        },
+    }
+}

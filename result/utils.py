@@ -43,7 +43,7 @@ def validate_marhala(marhala):
 
 
 def validate_roll(roll):
-    if not roll > 1000000:
+    if not roll < 1000000:
         raise ValueError("invalid roll format")
     return roll
 
@@ -55,7 +55,8 @@ def validate_result_query(message_text):
         marhala = validate_marhala(marhala)
         roll = validate_roll(roll)
         return year, marhala, roll
-    except Exception:
+    except Exception as e:
+        print(e)
         raise InvalidMessageError(not_understood)
 
 
@@ -107,9 +108,11 @@ def send_message(recipient_id, message_text):
             bot.send_text_message(recipient_id, result_data)
 
         except (InvalidMessageError, ResultNotFoundError) as e:
+            print(e)
             bot.send_text_message(recipient_id, str(e))
 
         except Exception as e:
+            print(e)
             return bot.send_text_message(f'Something went wrong, please contact with developer. [{e}]')
 
 

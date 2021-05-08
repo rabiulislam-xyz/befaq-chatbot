@@ -12,12 +12,12 @@ marhala_list = {
     7: "ইলমুত তাজবীদ ওয়াল কিরাআত"
 }
 
-marhala_list_for_help_text = "\n".join([f'{k}: {v}' for k, v in enumerate(marhala_list, 1)])
+marhala_list_for_help_text = "\n".join([f'{k}: {v}' for k, v in marhala_list.items()])
 
-help_text = f'''রেজাল্টের জন্য এই ফরম্যাটে ম্যাসেজ করুন\n
-সন মারহালা-নং রোল (যেমন: 2018 8 3)\n\n
+help_text = f'''রেজাল্টের জন্য এই ফরম্যাটে ম্যাসেজ করুন
+সন মারহালা-নং রোল, যেমন: 2018 8 3
 
-সকল মারহালা নংঃ \n
+সকল মারহালা নংঃ
 {marhala_list_for_help_text}
 '''
 

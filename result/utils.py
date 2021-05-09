@@ -15,7 +15,8 @@ marhala_list = {
 marhala_list_for_help_text = "\n".join([f'{k}: {v}' for k, v in marhala_list.items()])
 
 help_text = f'''রেজাল্টের জন্য এই ফরম্যাটে ম্যাসেজ করুন
-সন মারহালা-নং রোল, যেমন: 2018 8 3
+সন <spec> মারহালা-নং <spec> রোল
+যেমন: 2018 8 3
 
 সকল মারহালা নংঃ
 {marhala_list_for_help_text}
@@ -124,7 +125,7 @@ def process_message(message_json):
     for event in message_json['entry']:
         messaging = event['messaging']
         for message in messaging:
-            if message.get('message') and not message.get('is_echo'):
+            if message.get('message'):
                 # Facebook Messenger ID for user so we know where to send response back to
                 recipient_id = message['sender']['id']
                 if message['message'].get('text'):

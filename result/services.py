@@ -31,19 +31,20 @@ def get_result_from_api(year, marhala, roll):
     print(f'made cache_key {cache_key}')
 
     try:
-        # try to get from cache
+        print('try to get from cache')
         cached_result = cache.get(cache_key)
         if cached_result:
             print('result found from REDIS')
             return cached_result
 
-        # try to get from mongodb
+        print('try to get from mongodb')
         mongo_result = db.results.find_one({"cache_key": cache_key})
         if mongo_result:
             print('result found from MONGO')
             return loads(mongo_result["result"])
 
         url = '{}/{}/{}/{}'.format(API_ENDPOINT, year, marhala, roll)
+        print(f'requesting to api: {url}')
         response = requests.get(url, timeout=10)
         result = response.json()
         if result and result.get("status") != 404:

@@ -19,6 +19,7 @@ class TermsView(TemplateView):
 @csrf_exempt
 def receive_message(request):
     if request.method == 'POST':
+        print("====================================== its a separator for see view-wise logs in heroku cli")
         process_message(json.loads(request.body.decode("utf-8")))
         return HttpResponse('Message Processed')
 

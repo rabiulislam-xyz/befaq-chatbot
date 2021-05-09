@@ -31,11 +31,11 @@ def get_result_from_api(year, marhala, roll):
     print(f'made cache_key {cache_key}')
 
     try:
-        print('try to get from cache')
-        cached_result = cache.get(cache_key)
-        if cached_result:
-            print('result found from REDIS')
-            return cached_result
+        # print('try to get from cache')
+        # cached_result = cache.get(cache_key)
+        # if cached_result:
+        #     print('result found from REDIS')
+        #     return cached_result
 
         print('try to get from mongodb')
         mongo_result = db.results.find_one({"cache_key": cache_key})
@@ -49,8 +49,8 @@ def get_result_from_api(year, marhala, roll):
         result = response.json()
         if result and result.get("status") != 404:
             print('result fetched from API')
-            # set to redis cache
-            cache.set(cache_key, result, timeout=600)
+            # # set to redis cache
+            # cache.set(cache_key, result, timeout=600)
             # set to mongo db
             insert_to_mongo(cache_key, result)
 

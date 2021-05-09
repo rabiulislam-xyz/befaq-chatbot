@@ -149,3 +149,6 @@ CACHES = {
         },
     }
 }
+
+
+MONGODB_URL = env.str("MONGODB_URL", "")

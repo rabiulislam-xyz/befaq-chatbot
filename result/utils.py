@@ -103,6 +103,8 @@ def send_message(recipient_id, message_text):
         try:
             year, marhala, roll = validate_result_query(message_text)
             result = get_result_from_api(year, marhala, roll)
+            print(f"found result: {result}")
+
             description, result_data = prepare_result(result)
             bot.send_text_message(recipient_id, description)
             bot.send_text_message(recipient_id, result_data)
@@ -113,7 +115,8 @@ def send_message(recipient_id, message_text):
 
         except Exception as e:
             print(e)
-            return bot.send_text_message(f'Something went wrong, please contact with developer. [{e}]')
+            return bot.send_text_message(
+                recipient_id, f'Something went wrong, please contact with developer. [{e}]')
 
 
 def process_message(message_json):

@@ -15,14 +15,15 @@ marhala_list = {
 marhala_list_for_help_text = "\n".join([f'{k}: {v}' for k, v in marhala_list.items()])
 
 help_text = f'''রেজাল্টের জন্য এই ফরম্যাটে ম্যাসেজ করুন
-সন <spec> মারহালা-নং <spec> রোল
-যেমন: 2018 8 3
+সন<space>মারহালা-নং<space>রোল
+
+যেমন: 2017 2 391 
 
 সকল মারহালা নংঃ
 {marhala_list_for_help_text}
 '''
 
-not_understood = 'আপনার ম্যাসেজ বোঝা যায়নি, বিস্তারিত জানতে `help` লিখে ম্যাসেজ করুন'
+not_understood = 'আপনার ম্যাসেজ বোঝা যায়নি, বিস্তারিত জানতে `help` লিখুন'
 salam_answer = 'ওয়ালাইকুমুস সালাম'
 
 incoming_help_texts = ['help', 'হেল্প']

@@ -59,4 +59,12 @@ def get_result_from_api(year, marhala, roll):
     except Exception as e:
         print(e)
 
-    raise ResultNotFoundError('রেজাল্ট পাওয়া যায়নি')
+    raise ResultNotFoundError(
+        '''রেজাল্ট পাওয়া যায়নি'
+        - সম্ভবত আপনার ম্যাসেজের ফরমেট ঠিক হয়নি, বিস্তারিত জানতে `help` লিখুন
+        - অথবা রেজাল্ট এখনো প্রকাশ হয়নি
+        - অথবা বেফাকের ওয়েবসাইট ডাউন হয়ে আছে
+        
+        লেটেস্ট আপডেটের জন্য এখানে ভিজিট করুনঃ https://wifaqresult.com/
+        '''
+    )

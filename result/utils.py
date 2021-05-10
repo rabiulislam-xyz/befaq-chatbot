@@ -17,7 +17,7 @@ marhala_list_for_help_text = "\n".join([f'{k}: {v}' for k, v in marhala_list.ite
 help_text = f'''রেজাল্টের জন্য এই ফরম্যাটে ম্যাসেজ করুন
 সন<space>মারহালা-নং<space>রোল
 
-যেমন: 2017 2 391 
+যেমন ২০১৭ সন ফযীলতের ৩৯১ রোলের রেজাল্ট জানতে লিখুন: 2017 2 391 
 
 সকল মারহালা নংঃ
 {marhala_list_for_help_text}
